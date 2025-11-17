@@ -1,5 +1,5 @@
-from src.configurations_mlflow import set_mlflow_exp,set_mlflow_host,load_log_model_name
-from src.configurations_mlflow import test_model_registry,mlflow_client
+from configurations_mlflow import set_mlflow_exp,set_mlflow_host,load_log_model_name
+from configurations_mlflow import test_model_registry,mlflow_client
 
 
 ## set the mlflow experiment and mlflow host within the workflow:
