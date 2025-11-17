@@ -56,6 +56,43 @@ def load_dt_model(name=log_model_name,model_path:str="models/log_model.pkl"):
 
     return model_name,model_file
 
+## function for testing model registry
+def test_model_registry(name, version,client_var=mlflow_client()):
+    from mlflow.exceptions import RestException
+    """
+    Check if a specific model version exists in MLflow Model Registry
+    and print the result.
+
+    Args:
+        name (str): Model name in the registry.
+        version (str or int): Version number of the model.
+    """
+    client = client_var
+    try:
+        client.get_model_version(name=name, version=version)
+        print(f"Model '{name}' version {version} exists")
+    except RestException:
+        print(f" Model '{name}' version {version} not found")
+        
+
+## a function for testing model versioning or stages per model
+def test_model_versioning(name, stage,client_var=mlflow_client()):
+
+    from mlflow.exceptions import RestException
+    """
+    Check if a specific model version exists in MLflow Model Registry
+    and print the result.
+
+    Args:
+        name (str): Model name in the registry.
+        version (str or int): Version number of the model.
+    """
+    client = mlflow_client()
+    try:
+        client.get_model_version(name=name, stage=stage)
+        print(f"Model '{name}' at {stage} exists")
+    except RestException:
+        print(f"Model '{name}' at {stage} not found")
 
 
 
