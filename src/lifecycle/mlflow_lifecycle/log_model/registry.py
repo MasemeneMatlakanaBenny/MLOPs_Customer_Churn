@@ -1,7 +1,7 @@
 import mlflow
 from mlflow.models import infer_signature
-from src.configurations import X_train_y_train
-from src.configurations_mlflow import set_mlflow_host,set_mlflow_exp,load_log_model
+from configurations import X_train_y_train
+from configurations_mlflow import set_mlflow_host,set_mlflow_exp,load_log_model
 
 # set mlflow experience and host within the workflow:
 set_mlflow_exp()
