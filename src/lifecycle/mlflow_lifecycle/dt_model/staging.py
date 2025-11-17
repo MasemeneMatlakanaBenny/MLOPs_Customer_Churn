@@ -1,5 +1,5 @@
 import mlflow.sklearn
-from src.configurations_mlflow import set_mlflow_exp,set_mlflow_host,mlflow_client,load_dt_model_name
+from configurations_mlflow import set_mlflow_exp,set_mlflow_host,mlflow_client,load_dt_model_name
 
 
 ## set the mlflow host and mlflow experience within the workflow first:
