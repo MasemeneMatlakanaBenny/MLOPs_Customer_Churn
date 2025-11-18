@@ -1,4 +1,4 @@
-from configurations_mlflow import set_mlflow_exp,set_mlflow_host,load_dt_model_name
+from configurations_mlflow import set_mlflow_exp,set_mlflow_host,load_green_model_name
 from configurations_mlflow import test_model_versioning,mlflow_client
 
 
@@ -6,7 +6,7 @@ from configurations_mlflow import test_model_versioning,mlflow_client
 set_mlflow_exp()
 set_mlflow_host()
 
-model_name=load_dt_model_name()
+model_name=load_green_model_name()
 model_stage="staging"
 
 ## client:
