@@ -42,19 +42,13 @@ def set_mlflow_exp(exp_name=exp_name):
     return mlflow.set_experiment(experiment_name=exp_name)
 
 ## this the function that will load the models name:
-def load_dt_model(name=dt_model_name,model_path:str="models/dt_model.pkl"):
-    model_name=name
-    model_file=joblib.load(model_path)
-
-    return model_name,model_file
+def load_blue_model_name():
+    return log_model_name
 
 
 ## this is the function for loading the logistic regression model:
-def load_dt_model(name=log_model_name,model_path:str="models/log_model.pkl"):
-    model_name=name
-    model_file=joblib.load(model_path)
-
-    return model_name,model_file
+def load_green_model_name():
+    return dt_model_name
 
 ## function for testing model registry
 def test_model_registry(name, version,client_var=mlflow_client()):
