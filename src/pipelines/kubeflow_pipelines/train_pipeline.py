@@ -23,4 +23,17 @@ def blue_model_component(X_train,y_train):
   model.fit(X_train,y_train)
   
   return model
+  
+@component
+def green_model_component(X_train,y_train):
+  """
+  Component for model training for the challenger model
+  """
+  from sklearn.tree import DecisionTreeClassifier
+  
+  model=DecisionTreeClassifier()
+  model.fit(X_train,y_train)
+  
+  return model
+
 
