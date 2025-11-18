@@ -37,3 +37,22 @@ def green_model_component(X_train,y_train):
   return model
 
 
+@pipeline(
+  name="train_pipeline_or_model_development_pipeline",
+  description="A kubeflow pipeline that is used to develop two models simultaneously i.e green model and blue model"
+)
+def model_development_pipeline():
+  """
+  The entire model development pipeline
+
+  Load X_train & y_train
+     ***
+     ***
+  Baseline Model Development
+     ***
+     ***
+  Challenger Model Development
+  """
+  X_train,y_train=data_loading_component()
+  blue_model=blue_model_component(X_train=X_train,y_train=y_train)
+  green_model=green_model_component(X_train=X_train,y_train=y_train)
