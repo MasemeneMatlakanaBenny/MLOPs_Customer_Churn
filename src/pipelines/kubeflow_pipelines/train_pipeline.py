@@ -1,6 +1,5 @@
 from kfp import dsl,compiler
 from kfp.dsl import pipeline,component
-
 @component
 def data_loading_component():
   """
@@ -11,6 +10,14 @@ def data_loading_component():
   X_train,y_train=X_train_y_train()
   
   return X_train,y_train
+
+@component
+def save_model(model,model_path):
+  """
+  Component that will save any incoming model
+  """
+  import joblib
+  joblib.dump(model,model_art.path)
 
 @component
 def blue_model_component(X_train,y_train):
