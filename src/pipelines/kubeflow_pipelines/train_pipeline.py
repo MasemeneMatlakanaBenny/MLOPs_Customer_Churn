@@ -12,3 +12,15 @@ def data_loading_component():
   
   return X_train,y_train
 
+@component
+def blue_model_component(X_train,y_train):
+  """
+  Component for model training for the baseline model
+  """
+  from sklearn.linear_model import LogisticRegression
+  
+  model=LogisticRegression(solver="liblinear")
+  model.fit(X_train,y_train)
+  
+  return model
+
