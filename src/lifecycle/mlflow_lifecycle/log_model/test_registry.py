@@ -1,4 +1,4 @@
-from configurations_mlflow import set_mlflow_exp,set_mlflow_host,load_log_model_name
+from configurations_mlflow import set_mlflow_exp,set_mlflow_host,load_blu4_model_name
 from configurations_mlflow import test_model_registry,mlflow_client
 
 
@@ -6,7 +6,7 @@ from configurations_mlflow import test_model_registry,mlflow_client
 set_mlflow_exp()
 set_mlflow_host()
 
-model_name=load_log_model_name()
+model_name=load_blue_model_name()
 model_version="1"
 
 ## client:
