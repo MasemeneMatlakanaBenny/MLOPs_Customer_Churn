@@ -63,3 +63,6 @@ def model_development_pipeline():
   X_train,y_train=data_loading_component()
   blue_model=blue_model_component(X_train=X_train,y_train=y_train)
   green_model=green_model_component(X_train=X_train,y_train=y_train)
+  save_model(blue_model,model_path="models/blue_model.pkl")
+  save_model(blue_model,model_path="models/blue_model.pkl")
+  
