@@ -5,7 +5,7 @@ def X_train_y_train(path="data/train_data.csv"):
     import pandas as pd
 
     train_df=pd.read_csv(path)
-    X_train=train_df.drop(["feedback_text","country","last_purchase_date","customer_id","gender"],axis=1)
+    X_train=train_df.drop(["feedback_text","country","last_purchase_date","customer_id","gender","churned"],axis=1)
     y_train=train_df["churned"]
 
     return X_train,y_train
