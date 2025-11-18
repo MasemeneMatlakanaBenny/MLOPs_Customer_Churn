@@ -1,5 +1,5 @@
 import mlflow.sklearn
-from configurations_mlflow import set_mlflow_exp,set_mlflow_host,mlflow_client,load_dt_model_name
+from configurations_mlflow import set_mlflow_exp,set_mlflow_host,mlflow_client,load_green_model_name
 
 
 ## set the mlflow host and mlflow experience within the workflow first:
@@ -8,7 +8,7 @@ set_mlflow_exp()
 
 ## get the model's parameters:
 
-model_name=load_dt_model_name()
+model_name=load_green_model_name()
 model_version="1"
 
 ## get the client:
