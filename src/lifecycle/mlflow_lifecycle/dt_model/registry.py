@@ -1,7 +1,7 @@
 import mlflow
 from mlflow.models import infer_signature
 from configurations import X_train_y_train
-from configurations_mlflow import set_mlflow_host,set_mlflow_exp,load_dt_model
+from configurations_mlflow import set_mlflow_host,set_mlflow_exp,load_green_model_name
 
 # set mlflow experience and host within the workflow:
 set_mlflow_exp()
@@ -11,7 +11,7 @@ set_mlflow_host()
 X_train,X_train=X_train_y_train()
 
 ## get the model name and the model file:
-model_name,model_file=load_dt_model()
+model_name,model_file=load_green_model_name()
 
 ## create the signature that will be logged into when registering the model:
 signature=infer_signature(X_train,model_file.predict(X_train))
