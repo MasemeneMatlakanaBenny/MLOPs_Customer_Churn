@@ -15,10 +15,10 @@ def load_data():
 ## load the models using joblib
 @task(cache_fn=task.cache_fn,
       cache_expiration=timedelta(days=100))
-def load_log_model():
-  log_model=joblib.load("models/blue_model.pkl")
+def load_blue_model():
+  blue_model=joblib.load("models/blue_model.pkl")
   
-  return log_model
+  return blue
 
 @task(cache_fn=task.cache_fn,
       cache_expiration=timedelta(days=100))
@@ -46,3 +46,10 @@ def green_model_eval():
 def save_model_metrics(blue_metrics,green_metrics):
   joblib.dump(log_metrics,"metrics/blue_metrics.pkl")
   joblib.dump(dt_metrics,"metrics/green_metrics.pkl")
+
+## build two robust model evaluation pipelines :
+@flow
+def concurrent_model_eval_pipeline():
+  X_test,y_test=load_data.submit()
+  blue_model=load_blue_model.submit()
+  green_model=load_green_model.submit()
