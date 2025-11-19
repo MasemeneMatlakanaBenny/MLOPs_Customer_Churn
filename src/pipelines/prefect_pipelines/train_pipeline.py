@@ -2,7 +2,10 @@ from prefect import flow,task
 from prefect.task_runners import ConcurrentTaskRunner,DaskTaskRunner
 from datetime import timedelta
 
-@task
+@task(
+  cache_key_fun=task.cache_key_fn,
+  cache_expiration=timedelta(days=365)
+)
 def data_loading():
   """
   A function for loading the dataset
