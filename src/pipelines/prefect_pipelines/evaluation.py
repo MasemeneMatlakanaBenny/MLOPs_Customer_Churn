@@ -48,7 +48,7 @@ def save_model_metrics(blue_metrics,green_metrics):
   joblib.dump(dt_metrics,"metrics/green_metrics.pkl")
 
 ## build two robust model evaluation pipelines :
-@flow
+@flow(name="concurrent model evaluation pipeline",task_runner=ConcurrentTaskRunner())
 def concurrent_model_eval_pipeline():
   X_test,y_test=load_data.submit()
   blue_model=load_blue_model.submit()
