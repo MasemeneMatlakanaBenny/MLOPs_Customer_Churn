@@ -1,4 +1,5 @@
 from prefect import flow,task
+from prefect.task_runners import ConcurrentTaskRunner
 
 
 @task
