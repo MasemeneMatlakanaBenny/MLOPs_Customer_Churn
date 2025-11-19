@@ -69,5 +69,5 @@ def model_development_pipeline():
 ## compile the train ml pipeline:
 compiler.Compiler().compile(
   pipeline_func=model_development_pipeline,
-  package_path="pipelines/kubeflow_pipelines/model_development_pipeline.yaml")
+  package_path="wsrc/pipelines/kubeflow_pipelines/model_development_pipeline.yaml")
 
