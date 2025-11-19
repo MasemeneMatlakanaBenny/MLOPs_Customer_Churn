@@ -65,4 +65,9 @@ def model_development_pipeline():
   green_model=green_model_component(X_train=X_train,y_train=y_train)
   save_model(blue_model,model_path="models/blue_model.pkl")
   save_model(blue_model,model_path="models/blue_model.pkl")
-  
+
+## compile the train ml pipeline:
+compiler.Compiler().compile(
+  pipeline_func=model_development_pipeline,
+  package_path="pipelines/kubeflow_pipelines/model_development_pipeline.yaml")
+
