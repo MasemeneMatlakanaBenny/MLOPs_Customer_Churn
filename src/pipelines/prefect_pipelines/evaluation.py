@@ -53,3 +53,10 @@ def concurrent_model_eval_pipeline():
   X_test,y_test=load_data.submit()
   blue_model=load_blue_model.submit()
   green_model=load_green_model.submit()
+  ## get the metrics:
+  blue_metrics=blue_model_eval.submit(X_test=X_test,y_test=y_test)
+  green_metrics=green_model_eval.submit(X_test=X_test,y_test=y_test)
+
+  ## save the metrics now:
+  save_model_metrics.submit(blue_metrics=blue_metrics,green_metrics=green_metrics)
+
