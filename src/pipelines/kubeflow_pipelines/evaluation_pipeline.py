@@ -60,3 +60,7 @@ def model_eval_pipeline():
 
   ## save the metrics now:
   save_model_metrics.submit(blue_metrics=blue_metrics,green_metrics=green_metrics)
+
+compiler.Compiler().compile(
+  pipeline_func=model_eval_pipeline,
+  package_path="src/pipelines/kubeflow_pipelines/model_evlaution_pipeline.yaml")
