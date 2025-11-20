@@ -17,5 +17,8 @@ def global_models(live_model_path,shadow_model_path):
   global LIVE_MODEL,SHADOW_MODEL
   LIVE_MODEL=joblib.load(live_model_path)
   SHADOW_MODEL=joblib.load(shadow_model_path)
+  return LIVE_MODEL,SHADOW_MODEL
+
+
 
 
