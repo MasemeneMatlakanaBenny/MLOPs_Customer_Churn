@@ -10,3 +10,5 @@ set_mlflow_exp()
 blue_model_name=load_blue_model_name()
 green_model_name=load_green_model_name()
 
+
+stage="production"
