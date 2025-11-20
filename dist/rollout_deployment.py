@@ -35,7 +35,11 @@ async def rollout_deployment(input_data:PredictionInput,response_model):
   y_live=input_data.churned
   blue_live_metrics=model_metrics(y_live,features,BLUE_MODEL)
   green_live_metrics=model_metrics(y_live,features,GREEN_MODEL)
-  
+  if blue_live_metrics.mat_score > green_live_metrics.mat_score:
+     return {"prediction":blue_prediction}
+  elif blue_live_metrics.mat_score < green_live_metrics.mat_score:
+       return {"prediction":green_prediction}
+    
   
   
   
