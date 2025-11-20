@@ -33,6 +33,9 @@ async def rollout_deployment(input_data:PredictionInput,response_model):
   blue_prediction:int=BLUE_MODEL.predict(features)
   green_prediction:int=GREEN_MODEL.predict(features)
   y_live=input_data.churned
+  blue_live_metrics=model_metrics(y_live,features,BLUE_MODEL)
+  green_live_metrics=model_metrics(y_live,features,GREEN_MODEL)
+  
   
   
   
