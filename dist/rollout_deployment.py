@@ -30,11 +30,18 @@ def startup_event():
 @app.post("/rollout modeling",response_model=LiveModel,tags=["inference"])
 async def rollout_deployment(input_data:PredictionInput,response_model):
   features=np.array(input_data.X1)
+
+  ##get the blue and green ML predictions
   blue_prediction:int=BLUE_MODEL.predict(features)
   green_prediction:int=GREEN_MODEL.predict(features)
+  
   y_live=input_data.churned
+
+  ## get the blue and green live predictions:
   blue_live_metrics=model_metrics(y_live,features,BLUE_MODEL)
   green_live_metrics=model_metrics(y_live,features,GREEN_MODEL)
+
+  ## do some if else logic comparison for rollout deployment
   if blue_live_metrics.mat_score > green_live_metrics.mat_score:
      return {"prediction":blue_prediction}
   elif blue_live_metrics.mat_score < green_live_metrics.mat_score:
