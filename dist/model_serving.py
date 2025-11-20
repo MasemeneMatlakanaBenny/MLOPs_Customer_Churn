@@ -12,3 +12,7 @@ green_model_name=load_green_model_name()
 
 
 stage="production"
+
+
+blue_model_uri=f"models:/{blue_model_name}/{stage}"
+green_model_uri=f"models:/{green_model_name}/{stage}"
