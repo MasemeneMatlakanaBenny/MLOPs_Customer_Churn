@@ -9,6 +9,9 @@ try:
 except ImportError:
   raise ImportError("modules not found")
 
+LIVE_MODEL:Optional[LogisticRegression]=None
+SHADOW_MODEL:Optional[DecisionTreeClassifier]=None
+
 
 
 
