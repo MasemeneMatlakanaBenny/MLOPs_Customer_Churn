@@ -12,15 +12,23 @@ except ImportError:
 LIVE_MODEL:Optional[LogisticRegression]=None
 SHADOW_MODEL:Optional[DecisionTreeClassifier]=None
 
-def global_models(live_model_path,shadow_model_path):
+def load_models(live_model_path,shadow_model_path):
   import joblib
   global LIVE_MODEL,SHADOW_MODEL
   LIVE_MODEL=joblib.load(live_model_path)
   SHADOW_MODEL=joblib.load(shadow_model_path)
-  return LIVE_MODEL,SHADOW_MODEL
 
-app=FastAPI(name="ML Rollout deployment",
+
+app=FastAPI(title="ML Rollout deployment",
             description="Model versioning in production")
+
+@app.on_event("startup event")
+def startup_event():
+  load_models()
+
+
+  
+  
 
 
 
