@@ -5,6 +5,7 @@ try:
   from schemas import LiveModel,PredictionInput
   from sklearn.tree import DecisionTreeClassifier
   from sklearn.linear_model import LogisticRegression
+  from src.configurations import model_metrics
   
 except ImportError:
   raise ImportError("modules not found")
