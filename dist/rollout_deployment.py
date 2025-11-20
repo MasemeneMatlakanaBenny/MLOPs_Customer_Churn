@@ -19,6 +19,8 @@ def global_models(live_model_path,shadow_model_path):
   SHADOW_MODEL=joblib.load(shadow_model_path)
   return LIVE_MODEL,SHADOW_MODEL
 
+app=FastAPI(name="ML Rollout deployment",
+            description="Model versioning in production")
 
 
 
